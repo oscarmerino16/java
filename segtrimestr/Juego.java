@@ -10,10 +10,10 @@ public class Juego {
 	
 	//Métodos de la clase ------
 	
-	public Juego(String nombre) {
+	public Juego(String nombre, int record, boolean multijugador) {
 		this.nombre = nombre;
-		this.record = 0;
-		multijugador = false;
+		this.record = record;
+		this.multijugador = multijugador;
 	}
 	
 	public void ponerRecord(int puntuacion) {
