@@ -31,7 +31,7 @@ public class Recreativos {
 	public static void verTodosJuegos(Juego vJuegos[]) {
 		
 		for (int i = 0; i < vJuegos.length; i++) {
-			if (vJuegos[i]==null) {
+			if (vJuegos[i]!=null) {
 				System.out.println("El juego es + " + vJuegos[i]);
 			}
 		}
@@ -74,7 +74,7 @@ public class Recreativos {
 	
 	public static void main(String[] args) {
 		
-		
+		/*
 		Juego vJuegos[] = new Juego[100];
 		
 		Juego juego1 = new Juego("CiberPunk");
@@ -95,7 +95,7 @@ public class Recreativos {
 			}
 			
 		}
-		
+		*/
 
 	}
 

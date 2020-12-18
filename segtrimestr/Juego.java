@@ -8,7 +8,12 @@ public class Juego {
 	private int record;
 	private boolean multijugador;
 	
+	
 	//Métodos de la clase ------
+	
+	public Juego() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public Juego(String nombre, int record, boolean multijugador) {
 		this.nombre = nombre;
