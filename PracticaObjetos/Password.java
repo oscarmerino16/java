@@ -50,32 +50,34 @@ public class Password {
 		int cont2=0;
 		int cont3=0;
 		
-		for (int i = 0; i < letraMin.length(); i++) {
-			if (contrasena.substring(i,i+1).equals(letraMin)) {
+		for (int i = 0; i < longitud; i++) {
+			for (int j = 0; j < letraMin.length(); j++) {
+				if (contrasena.substring(i,i+1).equals(letraMin.substring(j,j+1))) {
 				
-				cont1=cont1+1;
+					cont1++;
 				
+				}
+				if (contrasena.substring(i,i+1).equals(letraMay.substring(j,j+1))) {
+					
+					cont2++;
+				
+				}
+			}
+			for (int j = 0; j < numeros.length(); j++) {
+				if (contrasena.substring(i,i+1).equals(numeros.substring(j,j+1))) {
+					
+					cont3++;
+				
+				}
 			}
 		}
-		for (int i = 0; i < letraMay.length(); i++) {
-			if (contrasena.substring(i,i+1).equals(letraMay)) {
-				
-				cont2=cont2+1;
-				
-			}
-		}
-		for (int i = 0; i < numeros.length(); i++) {
-			if (contrasena.substring(i,i+1).equals(numeros)) {
-				
-				cont3=cont3+1;
-				
-			}
-		}
+			
+		
 		if (cont1>1 && cont2>2 && cont3>5) {
 			return true;
-		}else {
-			return false;
 		}
+			return false;
+		
 			
 	}
 
