@@ -8,7 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class binario {
+public class ej1 {
 
 	public static void main(String[] args) {
 		
@@ -19,16 +19,19 @@ public class binario {
 				fichero.createNewFile();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				System.out.println("no fichero crear");
+				e.printStackTrace();
 			}
 		}
-
-		try (FileOutputStream fo = new FileOutputStream(fichero);
-			DataOutputStream escribir = new DataOutputStream(fo);){
 		
+		try {
+			FileOutputStream fo = new FileOutputStream(fichero);
+			DataOutputStream escribir = new DataOutputStream(fo);
+			
 			
 			escribir.writeInt(10);
-			escribir.writeUTF("oscar");
+			escribir.writeInt(20);
+			escribir.writeUTF("pepe");
+			
 			
 			
 		} catch (FileNotFoundException e) {
@@ -39,23 +42,27 @@ public class binario {
 			e.printStackTrace();
 		}
 		
-		try (FileInputStream fi = new FileInputStream(fichero);
-				DataInputStream leer = new DataInputStream(fi);){
+		try {
+			FileInputStream fi = new FileInputStream(fichero);
+			DataInputStream leer = new DataInputStream(fi);
 			
 			while (true) {
 				System.out.println(leer.readInt());
+				System.out.println(leer.readInt());
 				System.out.println(leer.readUTF());
+				
 			}
 			
-				
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("Fin de lectura");
+		}
+
 	}
 
 }
