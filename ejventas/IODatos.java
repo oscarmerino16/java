@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class IODatos {
 
-	public static void guardarDatos(String rutaFichero, Ventas[] datos) {
+	public static void guardarDatos(String rutaFichero, Ventas vVentas[]) {
 		
 		File f = new File(rutaFichero);
 		
@@ -28,7 +28,7 @@ public class IODatos {
 		try (FileOutputStream fo = new FileOutputStream(f);
 				DataOutputStream escribir = new DataOutputStream(fo)){
 			
-			for (Ventas v : datos) {
+			for (Ventas v : vVentas) {
 				if (v !=null) {
 					escribir.writeUTF(v.getNombre_Cliente());
 					escribir.writeInt(v.getUnidades_ven());
@@ -43,19 +43,17 @@ public class IODatos {
 			e.printStackTrace();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+			System.out.println("Has terminado de leer");
+			}
 		
 		
 	}
 	
 	public static Ventas[] cargarDatos(String rutaFichero) {
 		
-		String Nombre_Cliente;
-		int cod_prod, unidades_ven, cont=0;
-		double precio_uni;
-		
 		Ventas[] vector = new Ventas[10];
+		
+		int cont=0;
 		
 		File f = new File(rutaFichero);
 		if (!f.exists())
@@ -70,12 +68,14 @@ public class IODatos {
 				DataInputStream leer = new DataInputStream(fi) ){
 			
 			while (true) {
-				Nombre_Cliente=leer.readUTF();
-				cod_prod=leer.readInt();
-				unidades_ven=leer.readInt();
-				precio_uni=leer.readDouble();
+				String Nombre_Cliente=leer.readUTF();
+				int cod_prod=leer.readInt();
+				int unidades_ven=leer.readInt();
+				double precio_uni=leer.readDouble();
 				
-				vector[cont] = new Ventas(Nombre_Cliente, cod_prod, unidades_ven, precio_uni);
+				Ventas v = new Ventas(Nombre_Cliente, cod_prod, unidades_ven, precio_uni);
+				
+				vector[cont] = v;
 				
 				cont++;
 			}
