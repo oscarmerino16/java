@@ -37,7 +37,7 @@ public class Main {
 		
 		
 		for (Ventas ventas : vVentas) {
-			if (Nombre_Cliente.equalsIgnoreCase(ventas.getNombre_Cliente())) {
+			if (ventas.getNombre_Cliente().equalsIgnoreCase(Nombre_Cliente)) {
 				cont++;
 			}
 		}

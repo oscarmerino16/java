@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import javax.swing.JPasswordField;
 
-public class ejcontraseña {
+public class ejcontraseÃ±a {
 
 	public static void main(String[] args) {
 		
